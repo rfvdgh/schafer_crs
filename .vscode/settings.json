@@ -1,0 +1,9 @@
+// pythonPath is an environment variable which you can set to add additional
+// directories where python will look for modules and packages
+{
+    "python.pythonPath": "/home/poopmonkey/environments/aaa2/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "/home/poopmonkey/python_code/schafer_crs"
+        // enables intellisense for custom package locations
+    ]
+}
