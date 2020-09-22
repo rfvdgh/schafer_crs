@@ -19,13 +19,13 @@ x = "global x"
 
 def test(z):
     # global x
-    x = "local x"
-    # print(x)
+    # x = "local x"
+    print(x)
     print(z)
 
 
-# test("local z")
-# print(x)
+test("local z")
+print(x)
 
 # example of enclosing. Same concept as global and local.
 def outer():
@@ -33,7 +33,7 @@ def outer():
 
     def inner():
         # nonlocal x  # similar to global statement
-        x = "inner x"
+        # x = "inner x"
         print(x)
 
     inner()
