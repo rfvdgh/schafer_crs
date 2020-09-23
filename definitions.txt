@@ -8,3 +8,18 @@ It contains all the details about the floors, doors, windows etc. Based on these
 we build the house. House is the object. As many houses can be made from a house's blueprint, we can create 
 many objects from a class. An object is also called an instance of a class and the process of creating 
 this object is called instantiation.
+
+DUNDER METHOD   
+
+is an implicit function that is being called behind the scenes of an explicit operation or function.
+
+dir('stringOne')
+
+'stringOne' != 'stringTwo'
+
+is calling
+
+'stringOne'.__ne__('stringTwo')
+
+DUNDER ATTRIBUTES
+[dunder for dunder in dir(__builtins__) if dunder.startswith('__')]
