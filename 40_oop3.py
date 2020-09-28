@@ -1,3 +1,6 @@
+# Inheritence
+
+
 class Employee:
     raise_amt = 1.04
 
@@ -14,8 +17,55 @@ class Employee:
         self.pay = int(self.pay * self.raise_amt)
 
 
-dev_1 = Employee("Joe", "Lee", 50000)
-dev_2 = Employee("Test", "Employee", 60000)
+class Developer(Employee):
+    raise_amt = 1.10
 
-print(dev_1.email)
-print(dev_2.email)
+    def __init__(self, first, last, pay, prog_lang):
+        super().__init__(first, last, pay)  # super passes to Employee init method
+        # this works as well: Employee.__init__(self, first, last, pay)
+        self.prog_lang = prog_lang
+
+
+class Manager(Employee):
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+    def print_emps(self):
+        for emp in self.employees:
+            print("-->", emp.fullname())
+
+
+dev_1 = Developer("Joe", "Lee", 50000, "Python")
+dev_2 = Developer("Test", "Employee", 60000, "Java")
+mgr_1 = Manager("Sue", "Smith", 90000, [dev_1])
+
+print(isinstance(mgr_1, Manager))  # will tell us if an object is an instance of a class
+print(
+    issubclass(Developer, Employee)
+)  # will tell us if a class is a subclass of another
+
+# print(mgr_1.email)
+# mgr_1.add_emp(dev_2)
+# mgr_1.print_emps()
+# mgr_1.remove_emp(dev_2)
+# mgr_1.print_emps()
+
+# print(help(Developer))
+# print(dev_1.email)
+# print(dev_1.prog_lang)
+
+# print(dev_1.pay)
+# dev_1.apply_raise()
+# print(dev_1.pay)
